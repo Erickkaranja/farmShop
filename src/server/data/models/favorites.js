@@ -7,7 +7,7 @@ class Favourite {
     const Schema = this.mongoose.Schema;
     this.mongoose.model('Favourite', new Schema({
       user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-      productId: { type: mongoose.Schema.Types.ObjectId, ref: 'Produce'}
+      productId: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Produce'}]
 }, {timestamps: true })
 }
 }
