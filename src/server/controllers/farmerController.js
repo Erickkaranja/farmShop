@@ -12,6 +12,19 @@ class farmerController {
       }
     })
   }
+
+  //list a single farmer by id rem: create a middleware to check if user id exist.
+  static getFarmerById(req, res, next, db) {
+    db.models.Farmer.findById(req.query.id)
+    .exec((error, farmer) => {
+      if (err) {
+        console.error(err)
+        res.status(500).send()
+      } else {
+        res.status(200).send(farmer)
+      }
+    })
+  }
   //list a single farmer by email rem: create middleware to check email in req
   static getFarmerByEmail(req, res, next, db) {
     db.models.Farmer.findOne({
@@ -34,7 +47,7 @@ class farmerController {
   }
   //update a farmer by email.
   static updateFarmerByEmail(req, res, next, db) {
-    db.models.Farmer.findOne({
+    db.models.Farmer.findOneAndUpdate({
       email: req.query.email
     })
     .exec((err, farmer) => {
@@ -56,7 +69,7 @@ class farmerController {
            console.error(err)
            res.status(500).send()
          } else {
-           res.status().send(`Farmer ${req.query.email} deleted`)
+           res.status(200).send(`Farmer ${req.query.email} deleted`)
          }
       })
 
@@ -64,3 +77,6 @@ class farmerController {
   implement a read farmer pagination (reads farmer by page and limit passed.)
   **/
   }
+}
+
+module.exports = farmerController
