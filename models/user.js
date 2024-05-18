@@ -1,16 +1,10 @@
-class User {
-  constructor(mongoose) {
-    this.mongoose = mongoose
-    this.createModel()
-  }
-  createModel() {
-    const Schema = this.mongoose.Schema;
-    this.mongoose.model('User', new Schema({
-      firstName: { type: String, required: true },
-      lastName: { type: String, required: true },
+const mongoose = require('mongoose');
+
+const userSchema = mongoose.Schema({
+      firstName: { type: String },
+      lastName: { type: String },
       email: {  type: String, required: true, unique: true },
       password: { type: String, required: true },
-      fullName: String,
       profilePicture: String,
       passwordResetToken: String,
       passwordResetTokenExpiration: Date,
@@ -22,7 +16,6 @@ class User {
       refreshToken: String,
       tokenExpiration: Date
 }, { timestamps: true });
-)}
-}
 
-module.exports = User
+const User = mongoose.model('User', userSchema);
+module.exports = User;
