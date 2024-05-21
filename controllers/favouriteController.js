@@ -1,4 +1,4 @@
-const Favourite = require('../models/favorites');
+const Favourite = require('../models/favorite');
 
 class favouriteController {
   
@@ -9,12 +9,12 @@ class favouriteController {
       productId: productId
     })
     newFavourite.save();
-    res.status(201).json({newFavourite._id});
+    res.status(201).json({ id: newFavourite.id});
   }
 
   //gets favourites bases on the userId and returns all products.
-  async getFavourites(res, req, next) {
-    const userId = req.query.userId;
+  async getFavouritesByUser(res, req, next) {
+    const userId = req.params.userId;
     if (userId) {
       const favourites = await Favourite.find({ userId: userId});
       res.status(200).json({ favourites });
@@ -22,6 +22,10 @@ class favouriteController {
   }
 
 
-  async deleteFavourite(res, req, next) {
+  async deleteFavouriteById(res, req, next) {
+    await Favourite.deleteOne({_id: req.params.id});
+    res.status(204).json({})
   }
 }
+
+module.exports = new favouriteController();

@@ -32,7 +32,7 @@ class commonMiddleware {
   }
   //checks if our request contains id.
   queryContainsId(req, res, next) {
-    if (req.query.Id) {
+    if (req.params.id) {
       next();
     } else {
       res.status(400).send('No id provided.');

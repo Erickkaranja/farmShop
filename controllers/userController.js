@@ -1,5 +1,7 @@
 const bcrypt = require('bcrypt');
 const User = require('../models/user');
+const Review = require('../models/review');
+const Favourite = require('../models/favorite');
 
 class userController {
   async hashPassword(password) {
@@ -38,6 +40,7 @@ class userController {
     const allUser = await User.find()
     res.status(200).json(allUser)
     }
+
   async getUserByEmail(req, res, next) {
     const email = req.params.email;
     const user = await User.findOne({email: email})
@@ -55,10 +58,13 @@ class userController {
     res.status(200).json(user)
    }
    async deleteUserById(req, res, next) {
-     const { id } = req.params;
-     await db.models.deleteOne({_id: new objectId(id)})
-     res.status(204).json()
+     await User.deleteOne({_id: req.params.id});
+     await Reviews.deleteMany({ userId: req.params.id });
+     await Favourite.deleteMany({ userId: req.params.id });
+
+     res.status(204).json({});
    }
+
 }
 
 module.exports = new userController();

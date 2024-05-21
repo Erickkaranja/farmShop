@@ -1,6 +1,6 @@
 const mongooseClient = require('../utils/db');
 const Farmer = require('../models/farmer');
-
+const Produce = require('../models/produce');
 class farmerController {
 
   async createFarmer(req, res, next) {
@@ -40,8 +40,11 @@ class farmerController {
   async updateFarmerById(req, res, next) {
     
   }
-  async deleteFarmerByEmail(req, res, next) {
-    
+
+  async deleteFarmerById(req, res, next) {
+    await Farmer.deleteOne({ _id: req.params.id});
+    await Produce.deleteMany({ farmerId: req.params.id});
+    res.status(204).json({});
   }
 }
 module.exports = new farmerController();
