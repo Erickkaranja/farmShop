@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Mary Maryland",
+    "uname": "mland",
+    "email": "mland@gmail.com",
+    "age": 47
+  },  
+  {
+    "name": "Martin King",
+    "uname": "kingmartin",
+    "email": "martin@king.com",
+    "age": 54
+  },  
+  {
+    "name": "Ben Jeyhoo",
+    "uname": "jeyhoo",
+    "email": "jeyhoo@doe.com",
+    "age": 17
+  }
+]
