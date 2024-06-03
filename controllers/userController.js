@@ -59,7 +59,7 @@ class userController {
    }
    async deleteUserById(req, res, next) {
      await User.deleteOne({_id: req.params.id});
-     await Reviews.deleteMany({ userId: req.params.id });
+     await Review.deleteMany({ userId: req.params.id });
      await Favourite.deleteMany({ userId: req.params.id });
 
      res.status(204).json({});

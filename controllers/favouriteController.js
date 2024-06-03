@@ -2,7 +2,7 @@ const Favourite = require('../models/favorite');
 
 class favouriteController {
   
-  async createFavourite(res, req, next) {
+  async createFavourite(req, res, next) {
     const { userId, productId } = req.body;
     const newFavourite = new Favourite({
       userId: userId,
@@ -13,7 +13,7 @@ class favouriteController {
   }
 
   //gets favourites bases on the userId and returns all products.
-  async getFavouritesByUser(res, req, next) {
+  async getFavouritesByUser(req, res, next) {
     const userId = req.params.userId;
     if (userId) {
       const favourites = await Favourite.find({ userId: userId});

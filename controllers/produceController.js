@@ -17,7 +17,7 @@ class produceController {
     res.status(201).json({id: newProduce._id});
   }
   async getAllProducts(req, res, next) { 
-    const produce  = await produce.find();
+    const produce  = await Produce.find();
     if (produce) {
       res.status(200).json({ produce });
     }
