@@ -31,13 +31,16 @@ class userController {
       coordinates: coordinates,
       profilePicture: profilePicture
     });
-
-    newUser.save();
+    try {
+      newUser.save();
+      } catch(err) {
+         return res.status(400).json({error: err})
+      }
     res.status(201).json({id: newUser.id, email: newUser.email})
   }
   //implement pagination
   async getAllUsers(req, res, next) {
-    const allUser = await User.find()
+    const allUser = await User.find({}, 'firstname lastname email profilePicture')
     res.status(200).json(allUser)
     }
 

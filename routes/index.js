@@ -13,7 +13,7 @@ router.get('/farmers', farmerController.getAllFarmers);
 
 router.post('/farmer', commonMiddleware.hasRequestBody, farmerController.createFarmer);
 //recheck on this request.
-router.get('/farmer/:email', commonMiddleware.queryContainsEmail, farmerController.getFarmerByEmail);
+//router.get('/farmer/:email', commonMiddleware.queryContainsEmail, farmerController.getFarmerByEmail);
 //router.put('/farmer/:email', commonMiddleware.hasRequestBody, farmerController.updateFarmerByEmail);
 router.delete('/farmer/:id', commonMiddleware.queryContainsId, farmerController.deleteFarmerById);
 
