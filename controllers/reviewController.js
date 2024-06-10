@@ -1,8 +1,9 @@
 const Review = require('../models/review');
+const mongoose = require('mongoose');
 
 class reviewController {
-  async createReview(req, res, next) {
-    //userId must be acquired from redis session a redirection to login if not.
+  async createReview(req, res) {
+    //check the validity of userId and produceId.
     const { userId, produceId, rating, comment } = req.body;
     const newReview = new Review({
       userId: userId,
@@ -10,27 +11,38 @@ class reviewController {
       rating: rating,
       comment: comment
     });
-    newReview.save();
-    res.status(201).json({id: newReview.id});
-  }
-  //eliminate error on this.
-  async getReviewById(req, res, next) {
-    console.log(req.params.id);
-    const review = await Review.findOne({ _id: req.params.id });
-    console.log(review);
-    if (review) {
-      res.status(200).json({ review });
+    try {
+      newReview.save();
+      res.status(201).json({id: newReview.id});
+    } catch(err) {
+        res.status(500).json({error: err});
     }
   }
-  async getAllReviews(req, res, next) {
+  //check the id params
+  async getReviewById(req, res) {
+    const reviewId = new mongoose.Types.ObjectId(req.params.reviewId);
+    try {
+    const review = await Review.findOne({ _id: reviewId});
+    console.log(review);
+    if (review) {
+      res.status(200).json(review);
+    }
+    } catch(error) {res.status(500).json({error: err});}
+  }
+  async getAllReviews(req, res) {
     const reviews = await Review.find();
     if (reviews) {
       res.status(200).json({ reviews });
     }
   }
-  async deleteReviewId(req, res, next) {
+  async deleteReviewId(req, res) {
+    const reviewId = new mongoose.Types.ObjectId(req.params.reviewId);
+    try {
     await Review.deleteOne({ _id: req.params.id});
     res.status(204).json({});
+    } catch(err) {
+      res.status(500).json({error: 'error deleting review'});
+    }
   }
 }
 

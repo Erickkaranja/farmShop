@@ -14,21 +14,24 @@ router.get('/farmers', farmerController.getAllFarmers);
 router.post('/farmer', commonMiddleware.hasRequestBody, farmerController.createFarmer);
 //recheck on this request.
 //router.get('/farmer/:email', commonMiddleware.queryContainsEmail, farmerController.getFarmerByEmail);
-//router.put('/farmer/:email', commonMiddleware.hasRequestBody, farmerController.updateFarmerByEmail);
+router.put('/farmer/:id', farmerController.updateFarmerById);
 router.delete('/farmer/:id', commonMiddleware.queryContainsId, farmerController.deleteFarmerById);
 
 //user routes
 //edit controller remove secrete keys from being returned
 router.get('/users', userController.getAllUsers);
-router.get('/user/:email', commonMiddleware.queryContainsEmail, userController.getUserByEmail);
+router.get('/user/:userId/favourites', userController.getFavouriteByUser);
+router.get('/user/:userId/reviews', userController.getReviewByUser);
 router.post('/user', commonMiddleware.hasRequestBody, userController.postNew);
-//router.put();
+router.put('/user/:id', userController.updateUserById);
 router.delete('/user/:id', commonMiddleware.queryContainsId, userController.deleteUserById);
 
 //produce routes
 router.get('/products', authMiddleware.checkAuthHeader, produceController.getAllProducts);
-router.get('/product/:category', produceController.getProductByCategory);
+router.get('/product/category/:category', produceController.getProductByCategory);
+router.get('/product/:id', produceController.getProductById);
 router.post('/product', produceController.createNewProduct);
+router.put('/product/:id', produceController.updateProductById);
 router.delete('/product/:id', produceController.deleteProductById);
 
 //review routes

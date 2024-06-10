@@ -1,27 +1,40 @@
-const mongoose = require('mongoose');
+require('dotenv').config()
 const Farmer = require('../models/farmer');
-class MongooseClient {
+const username = process.env.USER_FARMSHOP
+const password = process.env.PASSWD
 
-  constructor() {
-    this.mongooseConnect();
-  }
+const mongoose = require('mongoose');
+const uri = `mongodb+srv://${username}:${password}@farmshop.fgc4nqp.mongodb.net/?retryWrites=true&w=majority&appName=farmShop`;
 
-  async mongooseConnect() {
-    const port = process.env.DB_PORT || 27017;
-    const host = process.env.DB_HOST || '127.0.0.1';
-    const database = process.env.DB_DATABASE || 'farmShop_db';
-    const uri = `mongodb://${host}:${port}/${database}`;
-    const client = await mongoose.connect(uri);
-    /**
-    client.on('connected', () => {
-       console.log(`MongoClient connected successfully 12`);
-       this.loadModels();
-    });
-    */
+class mongoClient {
+  /**
+  loadModels() {
+    const farmer = new Farmer();
+    console.log("models loaded");
   }
-  loadModels () {
-   const farmer = new Farmer();
-  }
+  **/
+  async connect() {
+  try {
+      await mongoose.connect(uri, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      });
+
+      console.log('Connected to MongoDB Atlas!');
+     // this.loadModels();
+
+      // Send a ping to confirm a successful connection
+      const adminDb = mongoose.connection.db.admin();
+      const pingResult = await adminDb.command({ ping: 1 });
+      console.log(pingResult);
+      console.log("Pinged your deployment. You successfully connected to MongoDB!");
+
+    } catch (error) {
+      console.error('Failed to connect to MongoDB', error);
+    } finally {
+         //mongoose.connection.close();
+    }
 }
-
-module.exports = MongooseClient;
+}
+//run().catch(console.dir);
+module.exports = new mongoClient()
