@@ -1,6 +1,6 @@
 const express = require('express');
 const router = require('./routes/index')
-const mongooseClient = require('./utils/db');
+const mongoClient = require('./utils/db')
 
 const port = process.env.port || 3000;
 
@@ -11,5 +11,5 @@ app.use('/', router);
 
 app.listen(port, () => {
   console.log(`Server is listening at ${port}`);
-  new mongooseClient();
+  mongoClient.connect().catch(console.dir);
 })
