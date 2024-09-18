@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>REGISTER</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">	
+  </head>
+  <body>
+  <main>
+    <h1>farmShop</h1>
+      <!-- REMEMBER TO ADD THE ACTION VALUE-->
+      <form action="" method="POST">
+	<label>create new account</label>
+	<section id="names">
+          <input type="text" required name="firstname" placeholder="First Name">
+	  <input type="text" required name="lastname" placeholder="Surname">
+	</section>
+	<section id="personal-details">
+	  <input type="email" required name="email" placeholder="Email">
+	  <input type="password" required name="password" placeholder="New Password">
+	</section>
+	<section>
+          <legend>Date of Birth</legend>
+	  <select id="day" name="day" required>
+	    <!-- Generate the 31 options via js -->
+          </select>
+	  <select id="month" name="month" required>
+	    <option>Jan</option>
+	    <option>Feb</option>
+            <option>Mar</option>
+            <option>Apr</option>
+            <option>May</option>
+            <option>Jun</option>
+            <option>Jul</option>
+            <option>Aug</option>
+            <option>Sep</option>
+            <option>Oct</option>
+            <option>Nov</option>
+            <option>Dec</option>
+          </select>
+	  <select id="year" name="year" required>
+             <!-- Generate the years via a js script-->
+	  </select>
+        </section>
+        <section id="gender">
+	  <legend>Gender</legend>
+          <label>Female<input type="radio" name="Gender" value="Female"></label>
+          <label>Male<input type="radio" name="Gender" value="Male"></label>
+	</section>
+        <button type="submit" id="submit">SIGN UP</button>
+      </form>
+      </main>
+      <script src="script/registration.js"></script>
+	</body>
+</html>
