@@ -1,21 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>login-form</title>
-		<meta charset="utf-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-	</head>
-	<body>
-		<main>
-			<div class="login-form">
-				<form method="POST" action="http://localhost:3000/login">
-					<label for="email"><input type="email" required name="email"></label>
-					<label for="password"><input type="password" required name="password"></label>
-					<button type="submit">LOGIN</button>
-				</form>
-				</div>
-		</main>
-	</body>
+  <head>
+  <title>login-form</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/login.css">
+  </head>
+  <body>
+  <main>
+    <div class="login-form">
+      <h1>PLEASE LOGIN</h1>
+      <form method="POST" action="http://localhost:3000/login">
+        <div class="form-control">
+	  <input type="email" required name="email">
+          <label>Email</label>
+        </div>
+        <div class="form-control">
+	  <input type="password" required name="password">
+          <label>Password</label>
+        </div>
+	<button type="submit" class="btn">LOGIN</button>
+        <p class="text">Don't have an account? <a href="#" onclick="redirectToRegPage()">Register</a></p>
+      </form>
+    </div>
+   </main>
+   <script src="script/login.js"></script>
+  </body>
 
 </html>

@@ -4,8 +4,7 @@ const username = process.env.USER_FARMSHOP
 const password = process.env.PASSWD
 
 const mongoose = require('mongoose');
-const uri = `mongodb+srv://${username}:${password}@farmshop.fgc4nqp.mongodb.net/?retryWrites=true&w=majority&appName=farmShop`;
-
+const uri =`mongodb+srv://${username}:${password}@farmshop.fgc4nqp.mongodb.net/?retryWrites=true&w=majority&appName=farmShop`;
 class mongoClient {
   /**
   loadModels() {

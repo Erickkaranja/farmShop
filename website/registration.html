@@ -3,23 +3,25 @@
   <head>
     <title>REGISTER</title>
       <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">	
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="styles/registration.css">
   </head>
   <body>
   <main>
     <h1>farmShop</h1>
+    <div class="reg-form">
       <!-- REMEMBER TO ADD THE ACTION VALUE-->
       <form action="" method="POST">
 	<label>create new account</label>
-	<section id="names">
+	<div class="names">
           <input type="text" required name="firstname" placeholder="First Name">
 	  <input type="text" required name="lastname" placeholder="Surname">
-	</section>
-	<section id="personal-details">
+	</div>
+	<div class="personal-details">
 	  <input type="email" required name="email" placeholder="Email">
 	  <input type="password" required name="password" placeholder="New Password">
-	</section>
-	<section>
+	</div>
+	<div class="date-of-birth">
           <legend>Date of Birth</legend>
 	  <select id="day" name="day" required>
 	    <!-- Generate the 31 options via js -->
@@ -41,14 +43,15 @@
 	  <select id="year" name="year" required>
              <!-- Generate the years via a js script-->
 	  </select>
-        </section>
-        <section id="gender">
+        </div>
+        <div class="gender">
 	  <legend>Gender</legend>
-          <label>Female<input type="radio" name="Gender" value="Female"></label>
-          <label>Male<input type="radio" name="Gender" value="Male"></label>
+          <label class="gender-label">Female<input type="radio" name="Gender" value="Female"></label>
+          <label class="gender-label">Male<input type="radio" name="Gender" value="Male"></label>
 	</section>
-        <button type="submit" id="submit">SIGN UP</button>
+        <button type="submit" class="btn">SIGN UP</button>
       </form>
+      </div>
       </main>
       <script src="script/registration.js"></script>
 	</body>
