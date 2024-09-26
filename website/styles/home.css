@@ -1,16 +1,28 @@
 body {
- background-color: white;
+ background-color: #f3ffe6;
  height: 100vh;
 }
-
+.nav-bar {
+ position: sticky;
+ top: 0;
+ background-color: #004d1a;
+ width: 100%;
+ display: inline-block;
+ z-index: 1;
+}
+.nav-links {
+ float: right;
+ color: white;
+ padding: 10px;
+ margin-top: -40px;
+ margin-right: 50px;
+ text-decoration: none;
+}
 .menu-icon {
       font-size: 30px;
       cursor: pointer;
-      position: sticky;
-      top: 20px;
-      left: 20px;
-      color: black;
-      background-color: white;
+      width: 30px;
+      color: white;
       padding: 10px;
       border-radius: 5px;
     }   
@@ -62,18 +74,41 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  /**align-items: center;**/
   gap: 16px;
-  max-width: 80%;
   margin: 0 auto;
   padding: 20px 10px;
 }
 .exa {
-  width: 100px;
-  height: 100px;
-  background-color: blue;
+  width: 300px;
+  height: 300px;
+  position: relative;
+  background-color: black;
   border-radius: 10px;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
+
+button[id="buttonItem"] {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+button.prev {
+  left: 10px;
+}
+button.next {
+  right: 10px;
+}
+
 input[type="search"] {
   border: none;
   background: transparent;
@@ -112,4 +147,3 @@ input[type="search"]:focus {
   border-color: #1183d6;
   outline: none;
 }
-
