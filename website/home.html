@@ -5,56 +5,100 @@
  </head>
  <body>
    <main>
-     <div class="nav-bar">
-       <!-- STATE ALL THAT WILL BE CONTAINED
+     <div class="head">
+       <div class="top-bar">
+            <div class="org-icon">
+                <img src="images/org.png" alt="orgIcon">
+            </div>
 
-       -->
-       <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
-       <div id="dropdownMenu" class="dropdown-menu">
-          <a href="#">Farmers</a>
-          <a href="#">Contracts</a>
-          <a href="#">Market Trends</a>
-          <a href="#">About</a>
-     </div>
-     <a href="login.html" class="nav-links">LOGIN</a>
-     <a href="Sign-up" class="nav-links">SIGN UP</a>
-     <!-- ADD image icon-->
-     </div>
-     <div class="company-logo">
-       <!-- will contain the companies logo, and a short description
-            also the search bar will be located here
-       -->
-         <h1>farmShop</h1>
-         <p>from the farm to your plate</p>
-       <form>
-         <input type="search" placeholder="Search .. Product or Farm">
-         <button type="submit">Search</button>
-       </form>
+            <!-- Center text -->
+            <div class="register Farm">
+                Register Farm
+            </div>
+
+            <div class="profile-icons">
+                <img src="profile-icon.png" alt="Profile Icon">
+                <img src="menu-icon.png" alt="Menu Icon">
+            </div>
+        </div>
+
+        <!-- Search bar below the top-bar -->
+        <div class="search-bar-container">
+            <input type="text" class="search-bar" placeholder="Search...">
+        </div>
 
      </div>
-     <h2>Categories</h2>
+       <nav class="navbar">
+          <div class="nav-item">
+            <img src="images/vegetable.png" alt="vegetable" class="icon">
+            <p class="plant-name">Vegetable</p>
+        </div>
+        <div class="nav-item">
+            <img src="images/cereal.png" alt="cereal" class="icon">
+            <p class="plant-name">Cereal</p>
+        </div>
+       <div class="nav-item">
+            <img src="images/tuber.png" alt="tuber" class="icon">
+            <p class="plant-name">Tubers</p>
+        </div>
+       <div class="nav-item">
+            <img src="images/fruits.png" alt="fruits" class="icon">
+            <p class="plant-name">Fruits</p>
+        </div>
+       <div class="nav-item">
+            <img src="images/poultry.png" alt="Poultry" class="icon">
+            <p class="plant-name">Poultry</p>
+        </div>
+       <div class="nav-item">
+            <img src="images/cattle.png" alt="cattle" class="icon">
+            <p class="plant-name">Cattle</p>
+        </div>
+      <div class="nav-item">
+            <img src="images/seedling.png" alt="seedling" class="icon">
+            <p class="plant-name">Seedling</p>
+        </div>
+      <div class="nav-item">
+            <img src="images/pet.png" alt="pet" class="icon">
+            <p class="plant-name">Pet</p>
+        </div>
+     <div class="nav-item">
+            <img src="images/dairy.png" alt="dairy" class="icon">
+            <p class="plant-name">Dairy</p>
+        </div>
+
+       </nav>
+     </div>
      <div class="category">
        <!-- will contain different categories on click should bring farmers near you with the product
             where on can place the order -->
-       <div class="exa"></div>
+      
      </div>
-     <h2>Farms near me</h2>
-     <div class="farmers">
-      <!-- will display todays orders and past orders, also will provide a place order icon
-           will allow farmer to fulfil the order based on farmer id
-       -->
-       <div class="farmer-details">
-          <h3>Morito farm</h3>
-          <div class="image-holder"></div>
-            <ul><h3>products</h3>
-              <li>potatoes</li>
-              <li>cabbages</li>
+     <div class="social-links">
+       <img src="images/x.png" alt="x">
+       <img src="images/facebook.png" alt="facebook">
+       <img src="images/instagram.png" alt="instagram">
+       <img src="images/tiktok.png" alt="ticktock">
+       <img src="images/linkedin.png" alt="linkedin">
+     </div>
+     <footer class="footer">
+       <div class="footer-section">
+          <h3>About FarmShop</h3>
+            <ul>
+                <li><a href="#">Who we are</a></li>
+                <li><a href="#">Our mission</a></li>
+                <li><a href="#">Donate</a></li>
+                <li><a href="#">Contact Us</a></li>
             </ul>
-         <p class="item">location: 14km away</p>
-     </div>
-     </div>
-     <footer>
-        
+       </div>
+       <div class="footer-section">
+          <h3>Support</h3>
+            <ul>
+                <li><a href="#">Help Center</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Shipping & Returns</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+            </ul>
+       </div>
      </footer>
      <script src="script/home.js"></script>
    </main>
